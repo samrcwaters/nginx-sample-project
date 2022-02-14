@@ -1,11 +1,16 @@
 version: "3.1"
 
 services:
-  webserver:
-    build: .
+  aedra_service:
+    build: ./services/aedra_api
     ports:
       - "3000:3000"
+  daedra_service:
+    build: ./services/daedra_api
+    ports:
+      - "4000:4000"
   nginx:
+    build: ./services/nginx
     image: nginx
     ports:
       - "8080:80"
